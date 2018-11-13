@@ -163,6 +163,20 @@ class Mazecontainer_1 extends Component {
     }
 
     handlerGo() {
+        const payLoad = {
+            matrix : this.state.matrix
+        }
+        fetch('/api/get_best_algo' , {
+            method: 'POST' ,
+            body: JSON.stringify(payLoad) ,
+            headers: {
+                "Content-Type": "application/json"
+            }
+        }).then((res) => {
+            return res.json();
+        }).then((json) => {
+            console.log(json);
+        });
         console.log(this.state.selected_algo);
         if(this.state.start) {
             if(this.state.selected_algo == "dfs")

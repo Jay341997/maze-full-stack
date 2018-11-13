@@ -7,8 +7,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 
 app.post('/api/get_best_algo', (req, res) => {
     var mat_to_solve = req.body.matrix;
-    console.log(mat_to_solve.mit);
-    res.send({res: 1});
+    res.send({mat: mat_to_solve});
 });
 
 app.listen(port, () => console.log(`Listening on port ${port}`));
